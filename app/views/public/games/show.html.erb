@@ -1,0 +1,41 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>Customer info</h2>
+      <%= render 'customers/info', customer: @game.customer %>
+      <h2 class="mt-3">New game</h2>
+      <%= render 'form', game: game.new %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Game detail</h2>
+      <table class='table'>
+        <tr>
+          <td><%= link_to(@game.customer) do %>
+            <%= image_tag @game.customer.get_profile_image, size:"100x100" %><br>
+            <%= @game.customer.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @game.title, @game %></td>
+          <td><%= @game.body %></td>
+          <td class=<%= "favorite-" + @game.id.to_s %> >
+            <%= render "favorites/btn", game: @game %>
+          </td>
+          <td class="game-comments-counter">
+            <%= render "game_comments/counter", game: @game %>
+          </td>
+          <% if @game.customer == current_customer %>
+            <td><%= link_to 'Edit', edit_game_path(@game), class: "btn btn-sm btn-success edit_game_#{@game.id}" %></td>
+            <td><%= link_to 'Destroy', @game, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_game_#{@game.id}" %></td>
+          <% end %>
+        </tr>
+      </table>
+
+      <div class="game-comments-index">
+        <%= render "game_comments/index", game: @game %>
+      </div>
+
+      <%= render "game_comments/form", game: @game, game_comment: @game_comment %>
+
+    </div>
+  </div>
+</div>
