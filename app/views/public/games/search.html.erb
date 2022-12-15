@@ -1,0 +1,4 @@
+<% if @model == 'game' %>
+  <h3>Games search for "<%= @content %>"</h3>
+  <%= render 'games/index', games: @records %>
+<% end %>

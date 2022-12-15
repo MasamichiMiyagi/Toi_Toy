@@ -2,6 +2,7 @@ class Game < ApplicationRecord
 
   #アソシエーションの設定
   belongs_to :customer
+  has_many :post_comments, dependent: :destroy
 
   #バリデーションの設定
   validates :title,presence:true

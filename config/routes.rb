@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   scope module: 'public' do
     root to: 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
-    resources :games, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :games, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      collection do
+        get 'search'
+      end
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   # 管理者用

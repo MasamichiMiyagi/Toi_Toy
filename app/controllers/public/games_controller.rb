@@ -1,5 +1,6 @@
 class Public::GamesController < ApplicationController
   before_action :is_matching_login_customer, only: [:edit, :update]
+  before_action :set_q, only: [:index, :search]
 
   def new
     @game = Game.new
@@ -27,6 +28,7 @@ class Public::GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @customer = @game.customer
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -49,10 +51,18 @@ class Public::GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private #←一種の境界線、「ここから下はこのcontrollerの中でしか呼び出せません」という意味があるので、他アクション(create,index,show等)を巻き込まないように一番下に書く。
   #↓以下ストロングパラメータ
   def game_params
     params.require(:game).permit(:title, :body, :game_image)
+  end
+
+  def set_q
+    @q = User.ransack(params[:q])
   end
 
   def is_matching_login_customer

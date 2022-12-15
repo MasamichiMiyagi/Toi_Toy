@@ -17,9 +17,7 @@
           </td>
           <td><%= link_to @game.title, @game %></td>
           <td><%= @game.body %></td>
-          <td class=<%= "favorite-" + @game.id.to_s %> >
-            <%= render "favorites/btn", game: @game %>
-          </td>
+
           <td class="game-comments-counter">
             <%= render "game_comments/counter", game: @game %>
           </td>
