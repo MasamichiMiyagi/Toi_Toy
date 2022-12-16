@@ -1,7 +1,11 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Toi Toy</span></a>
+      <div class="navbar-brand p-3" href="/">
+        <%= link_to root_path do %>
+          <%= image_tag('Toi_Toy_logo.png') %>
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,22 +13,22 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>
+            <%= link_to customer_path(current_customer),class: 'nav-link text-dark' do %>
               <i class="fas fa-user-robot"></i> home
             <% end %>
           </li>
           <li>
-            <%= link_to customers_path,class: 'nav-link text-light' do %>
+            <%= link_to customers_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-users"></i> customers
             <% end %>
           </li>
           <li>
-            <%= link_to games_path ,class: 'nav-link text-light' do %>
+            <%= link_to games_path ,class: 'nav-link text-dark' do %>
               <i class="far fa-game-board"></i> games
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %>
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-out-alt"></i> log out
             <% end %>
           </li>
@@ -32,22 +36,22 @@
 
         <% else %>
           <li>
-            <%= link_to root_path,class: 'nav-link text-light' do %>
+            <%= link_to root_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-user-robot"></i> home
             <% end %>
           </li>
           <li>
-            <%=  link_to games_path ,class: 'nav-link text-light' do %>
+            <%=  link_to games_path ,class: 'nav-link text-dark' do %>
               <i class="far fa-game-board"></i> games
             <% end %>
           </li>
           <li>
-            <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
+            <%= link_to new_customer_registration_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-user-plus"></i> sign up
             <% end %>
           </li>
           <li>
-            <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %>
+            <%= link_to new_customer_session_path ,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-in-alt"></i> log in
             <% end %>
           </li>
