@@ -14,7 +14,7 @@
         <% if customer_signed_in? %>
           <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-dark' do %>
-              <i class="fas fa-user-robot"></i> home
+              <i class="fas fa-chess-rook"></i> home
             <% end %>
           </li>
           <li>
@@ -24,7 +24,7 @@
           </li>
           <li>
             <%= link_to games_path ,class: 'nav-link text-dark' do %>
-              <i class="far fa-game-board"></i> games
+              <i class="fas fa-dice-five"></i> games
             <% end %>
           </li>
           <li>
@@ -37,12 +37,12 @@
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-dark' do %>
-              <i class="fas fa-user-robot"></i> home
+              <i class="fas fa-chess-rook"></i> home
             <% end %>
           </li>
           <li>
             <%=  link_to games_path ,class: 'nav-link text-dark' do %>
-              <i class="far fa-game-board"></i> games
+              <i class="fas fa-dice-five"></i> games
             <% end %>
           </li>
           <li>

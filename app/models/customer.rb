@@ -13,11 +13,11 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image
 
-  def get_profile_image
+  def get_profile_image(width,height)
     (profile_image.attached?) ? profile_image : 'default_image.jpg'
   end
 
   def active_for_authentication?
-    super && (is_deleted == false)
+    super && (is_deleted != true)
   end
 end

@@ -10,6 +10,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+
     super
     games_path
   end
@@ -27,10 +28,10 @@ class Public::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     # アカウントを取得できなかった場合、このメソッドを終了する
     return if !@customer
+
     # 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == true)
       redirect_to new_customer_registration_path
-    else
     end
   end
 

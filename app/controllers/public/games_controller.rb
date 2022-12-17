@@ -62,7 +62,7 @@ class Public::GamesController < ApplicationController
   end
 
   def set_q
-    @q = User.ransack(params[:q])
+    @q = Game.ransack(params[:q])
   end
 
   def is_matching_login_customer
