@@ -1,0 +1,24 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% games.each do |game| %>
+      <tr>
+        <td><%= link_to(game.customer) do %>
+          <%= image_tag game.customer.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= link_to game.title,game, class: "game_#{game.id}" %></td>
+        <td><%= game.body %></td>
+
+        <td><%= render "post_comments/counter", game: game %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

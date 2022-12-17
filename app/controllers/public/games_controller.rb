@@ -58,7 +58,7 @@ class Public::GamesController < ApplicationController
   private #←一種の境界線、「ここから下はこのcontrollerの中でしか呼び出せません」という意味があるので、他アクション(create,index,show等)を巻き込まないように一番下に書く。
   #↓以下ストロングパラメータ
   def game_params
-    params.require(:game).permit(:title, :body, :game_image)
+    params.require(:game).permit(:title, :body, :game_image, :star)
   end
 
   def set_q
