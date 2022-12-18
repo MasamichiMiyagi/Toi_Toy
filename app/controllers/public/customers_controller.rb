@@ -8,17 +8,17 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
-    @customer = current_customer
-    @games = Game.all
+    @customer = Customer.find(params[:id])
+    @games = @customer.games
     @game = Game.new
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       redirect_to customers_path(@customer), notice: "You have updated successfully."
     else
