@@ -9,6 +9,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @games = Game.all
     @game = Game.new
   end
 
