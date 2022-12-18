@@ -41,11 +41,6 @@
             <% end %>
           </li>
           <li>
-            <%=  link_to games_path ,class: 'nav-link text-dark' do %>
-              <i class="fas fa-dice-five"></i> games
-            <% end %>
-          </li>
-          <li>
             <%= link_to new_customer_registration_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-user-plus"></i> sign up
             <% end %>
@@ -53,6 +48,11 @@
           <li>
             <%= link_to new_customer_session_path ,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-in-alt"></i> log in
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to homes_guest_sign_in_path, method: :post ,class: 'nav-link text-dark' do %>
+              <i class="fas fa-user-circle"></i> guest log in
             <% end %>
           </li>
         <% end %>

@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2022_12_17_103402) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_12_17_103402) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "user_id"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "star"

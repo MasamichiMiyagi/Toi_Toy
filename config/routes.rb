@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-   # 顧客用
+  # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -24,14 +30,9 @@ Rails.application.routes.draw do
       end
       resources :post_comments, only: [:create, :destroy]
     end
+
+    #ゲストログイン（閲覧用）homes_controller内にメソッドを記載
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   end
-
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords], controllers: {
-    sessions: "admin/sessions"
-  }
-
-
 
 end
