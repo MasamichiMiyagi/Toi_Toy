@@ -5,7 +5,8 @@
   </div>
   <div class="form-group row" id="star">
     <%= f.label :star, class: 'col-md-3 col-form-label' %>
-    <%= f.hidden_field :star, id: :review_star %>
+    <div review-star></div>
+    <%#= f.hidden_field :star, id: :review_star %>
   </div>
   <div class="form-group">
     <%= f.label :opinion %>
@@ -17,10 +18,14 @@
 <% end %>
 
   <script>
-    $('#star').raty({
+    var element = document.querySelector('[review-star]');
+    var options = {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
       scoreName: 'game[star]' //登録するモデル名とカラム名を記述
-    });
+//      score: <%#= game.score%>,
+//      readOnly: true
+    };
+    raty(element, options);
   </script>

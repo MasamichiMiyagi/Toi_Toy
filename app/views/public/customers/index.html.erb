@@ -9,6 +9,7 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Customers</h2>
       <%= render 'index',customers: @customers %>
+      <%= paginate @customers %>
     </div>
   </div>
 </div>

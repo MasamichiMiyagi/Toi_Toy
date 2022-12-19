@@ -13,8 +13,9 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image
 
-  def get_profile_image(width,height)
+  def get_profile_image(width, height)
     (profile_image.attached?) ? profile_image : 'default_image.jpg'
+    #image.variant(resize_to_fit: [width, height]).processed
   end
 
   def active_for_authentication?

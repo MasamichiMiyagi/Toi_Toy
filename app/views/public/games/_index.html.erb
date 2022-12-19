@@ -24,6 +24,19 @@
   </tbody>
 </table>
 <script>
+/*
+    var element = document.querySelector('[review-star]');
+    var options = {
+      starOn: "<%#= asset_path('star-on.png') %>",
+      starOff: "<%#= asset_path('star-off.png') %>",
+      starHalf: "<%#= asset_path('star-half.png') %>",
+      scoreName: 'game[star]' //登録するモデル名とカラム名を記述
+      score: <%#= game.score %>,
+      readOnly: true
+    };
+    raty(element, options);
+*/
+
   $('.game-star').raty({
     readOnly: true,
     score: function() {
@@ -31,4 +44,5 @@
     },
     path: '/assets/'
   });
+
 </script>

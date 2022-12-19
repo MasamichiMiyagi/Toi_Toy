@@ -7,7 +7,7 @@ class Public::GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.all.page(params[:page]).per(5)
     @game = Game.new
     @customers = Customer.all
     @customer = current_customer

@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def index
     @game = Game.new
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(5)
     @customer = current_customer
   end
 
