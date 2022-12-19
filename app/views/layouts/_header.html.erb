@@ -33,7 +33,21 @@
             <% end %>
           </li>
         <% elsif admin_signed_in? %>
-
+          <li>
+            <%= link_to admin_customers_path,class: 'nav-link text-dark' do %>
+              <i class="fas fa-users"></i> customers
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_games_path ,class: 'nav-link text-dark' do %>
+              <i class="fas fa-dice-five"></i> games
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-out-alt"></i> log out
+            <% end %>
+          </li>
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-dark' do %>
