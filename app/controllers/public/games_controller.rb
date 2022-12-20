@@ -52,6 +52,8 @@ class Public::GamesController < ApplicationController
   end
 
   def search
+    @games = Game.all.page(params[:page]).per(5)
+    @game = Game.new
     @results = @q.result
   end
 
