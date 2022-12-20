@@ -14,8 +14,11 @@ class Customer < ApplicationRecord
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
-    (profile_image.attached?) ? profile_image : 'default_image.jpg'
-    #image.variant(resize_to_fit: [width, height]).processed
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/profile_icon.png')
+      profile_image.attach(io: File.open(file_path), filename: 'profile_icon.png', content_type: 'image/jpeg')
+    end
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
   def active_for_authentication?

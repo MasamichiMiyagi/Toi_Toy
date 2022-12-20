@@ -12,7 +12,7 @@
     <% games.each do |game| %>
       <tr>
         <td><%= link_to(game.customer) do %>
-          <%= image_tag game.customer.get_profile_image(100,100) %>
+          <%= image_tag game.customer.get_profile_image(80,80) %>
           <% end %>
         </td>
         <td><%= link_to game.title,game, class: "game_#{game.id}" %></td>

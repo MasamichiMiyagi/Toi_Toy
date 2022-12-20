@@ -7,7 +7,7 @@
       <%= render 'public/games/form', game: @game %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2><%= current_customer.name %> Tweets</h2>
+      <h2><%= @customer.name %> Tweets</h2>
       <%= render 'public/games/index',games: @games %>
     </div>
   </div>
