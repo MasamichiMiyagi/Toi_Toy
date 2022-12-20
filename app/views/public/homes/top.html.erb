@@ -1,15 +1,23 @@
 <div class="container">
   <div class="row">
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>
+      <h1 class="font-italic mt-3">
         Welcome to Toi Toy !!
       </h1>
-      <div class="btn-wrapper col-10 mx-auto">
+      <br/>
+      <p class="col">ようこそ、Toi Toyへ</p>
+      <p class="col">Toi Toyはボードゲームが好きな方や、</p>
+      <p class="col">ボードゲームに興味がある方に向けたレビューサイトです。</p>
+      <p class="col">レビューを探すことは勿論、</p>
+      <p class="col">自らレビューを投稿することもできます。</p>
+      <br/>
+      <h5>新規登録、ログインはこちら</h5>
+      <div class="btn-wrapper col-10 mx-auto mt-4">
         <div class="row">
           <%= link_to 'Log in',new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
         </div>
         <div class="row">
-          <%= link_to 'Sign Up',new_customer_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+          <%= link_to 'Sign Up',new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-4 sign_up" %>
         </div>
       </div>
     </div>

@@ -17,26 +17,28 @@
         </td>
         <td><%= link_to game.title,game, class: "game_#{game.id}" %></td>
         <td><%= game.body %></td>
-        <td class="game-star" data-score="<%= game.star %>"></td>
+        <td class="game-star" id="star">
+          <div review-star></div>
+        </td>
         <td><%= render "public/post_comments/counter", game: game %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <script>
-/*
+
     var element = document.querySelector('[review-star]');
     var options = {
-      starOn: "<%#= asset_path('star-on.png') %>",
-      starOff: "<%#= asset_path('star-off.png') %>",
-      starHalf: "<%#= asset_path('star-half.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
       scoreName: 'game[star]' //登録するモデル名とカラム名を記述
-      score: <%#= game.score %>,
+      //score: <%#= game.score %>,
       readOnly: true
     };
     raty(element, options);
-*/
 
+/*
   $('.game-star').raty({
     readOnly: true,
     score: function() {
@@ -44,5 +46,6 @@
     },
     path: '/assets/'
   });
+*/
 
 </script>
