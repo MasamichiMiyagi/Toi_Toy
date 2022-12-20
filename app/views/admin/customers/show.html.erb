@@ -1,31 +1,36 @@
-<h1>
-  <%= @customer.name %>
-  さんの会員詳細
-</h1>
-<table class="table table-borderless">
-  <tr>
-    <th>会員ID</th>
-    <td>
-      <%= @customer.id %>
-    </td>
-  </tr>
-  <tr>
-    <th>氏名</th>
-    <td>
-      <%= @customer.name %>
-    </td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td>
-      <%= @customer.email %>
-    </td>
-  </tr>
-  <tr>
-    <th>会員ステータス</th>
-    <td><%= @customer.is_deleted ? '退会' : '有効' %></td>
-  </tr>
-</table>
-  <th>
-    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
-  </th>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 my-3 offset-2">
+      <h3><%= @customer.name %>さんの会員詳細</h3>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th style="width: 150px">会員ID</th>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th style="width: 150px">氏名</th>
+            <td><%= @customer.name %></td>
+          </tr>
+          <tr>
+            <th style="width: 150px">メールアドレス</th>
+            <td><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <th style="width: 150px" class="align-middle">会員ステータス</th>
+            <td>
+              <% if @customer.is_deleted %>
+                <p class="text-muted font-weight-bold align-middle">退会</p>
+              <% else %>
+                <p class="text-success font-weight-bold">有効</P>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <div class="offset-md-3">
+          <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success inline-block" %>
+        </div>
+    </div>
+  </div>
+</div>

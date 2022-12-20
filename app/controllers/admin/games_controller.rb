@@ -3,7 +3,7 @@ class Admin::GamesController < ApplicationController
   def index
     @games = Game.all
     @game = Game.new
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(10)
     @customer = Customer.find(params[:customer_id])
   end
 

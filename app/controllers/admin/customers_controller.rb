@@ -1,11 +1,12 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customers = Customer.page(params[:page]).per(20)
+    @customers = Customer.page(params[:page]).per(10)
   end
 
   def show
     @customer = Customer.find(params[:id])
+    #@game = Game.find(params[:game_id])
   end
 
   def edit
@@ -21,7 +22,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :profile_image)
+    params.require(:customer).permit(:name, :profile_image, :is_deleted)
   end
 
 end

@@ -1,28 +1,46 @@
-<h1>
-  <%= @customer.name %>
-  さんの会員情報編集
-</h1>
-  <%= form_with model: @customer, url: admin_customer_path(@customer),method: :patch do |f| %>
-  <div class="form-group row">
-    <%= f.label "会員ID",class: "col-md-2" %>
-      <div class = "col-md-10">
-        <%= @customer.id %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 my-3">
+      <% if @customer.errors.any? %>
+        <%= @customer.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <h3 class="mt-2"><%= @customer.name %>さんの会員情報編集</h3>
+      <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
+      <table class="table table-borderless offset-2">
+        <tbody>
+          <tr>
+            <th>会員id</th>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td><%= f.text_field :name, class:'form-control' %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.text_field :email, class:'form-control' %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td>
+             <%= f.radio_button :is_deleted, false %>
+             <%= f.label :is_deleted, "有効", value: false %>
+             <%= f.radio_button :is_deleted, true %>
+             <%= f.label :is_deleted, "退会", value: true %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group col-md-2 offset-5">
+        <%= f.submit "変更を保存", class: 'btn btn-success inline-block' %>
       </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group row" >
-    <%= f.label "氏名",class: "col-md-2" %>
-    <%= f.text_field :name, class: 'form-control customer-name col-md-3 ml-3' %>
-  </div>
-  <div class="form-group row">
-    <%= f.label :email, "メールアドレス",class: "col-md-2" %>
-    <%= f.text_field :email, class: 'form-control customer-email col-md-3 ml-3' %>
-  </div>
-  <div class="form-group row">
-    <%= f.label :is_deleted, "会員ステータス",class: "col-md-2" %>
-    <%= f.radio_button :is_deleted, false %>
-    <%= f.label :is_deleted, "有効", class: "mr-3" %>
-    <%= f.radio_button :is_deleted, true %>
-    <%= f.label :is_deleted, "退会" %>
-  </div>
-    <%= f.submit "変更を保存", class: "btn btn-sm btn-success" %>
-  <% end %>
+</div>
