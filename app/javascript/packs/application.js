@@ -23,6 +23,7 @@ ActiveStorage.start()
 //jQueryの呼び出し
 window.$ = window.jQuery = require('jquery');
 
+
 //Raty.js
 import Raty from "src/raty.js"
 window.raty = function(elem,opt) {

@@ -17,35 +17,24 @@
         </td>
         <td><%= link_to game.title,game, class: "game_#{game.id}" %></td>
         <td><%= game.body %></td>
-        <td class="game-star" id="star">
-          <div review-star></div>
+        <td class="game" value=<%= game.star%>>
         </td>
         <td><%= render "public/post_comments/counter", game: game %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<script>
 
-    var element = document.querySelector('[review-star]');
-    var options = {
+<script>
+for(let step = 0; step < <%= games.length %>;step++) {
+   var element = document.getElementsByClassName('game')[step];
+   var options = {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
-      scoreName: 'game[star]' //登録するモデル名とカラム名を記述
-      //score: <%#= game.score %>,
-      readOnly: true
+    readOnly:true,
+    score:element.getAttribute("value")
     };
-    raty(element, options);
-
-/*
-  $('.game-star').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-*/
-
+    new raty(element, options);
+}
 </script>

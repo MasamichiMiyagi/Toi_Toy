@@ -17,7 +17,6 @@
           </td>
           <td><%= link_to @game.title, @game %></td>
           <td><%= @game.body %></td>
-
           <td class="post-comments-counter">
             <%= render "public/post_comments/counter", game: @game %>
           </td>
@@ -26,14 +25,24 @@
             <td><%= link_to 'Destroy', @game, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_game_#{@game.id}" %></td>
           <% end %>
         </tr>
+        <td class="game" value=<%= @game.star %>>
       </table>
-
       <div class="post-comments-index">
         <%= render "public/post_comments/index", game: @game %>
       </div>
-
       <%= render "public/post_comments/form", game: @game, post_comment: @post_comment %>
-
     </div>
   </div>
 </div>
+
+<script>
+   var element = document.getElementsByClassName('game')[0];
+   var options = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+    readOnly:true,
+    score:element.getAttribute("value")
+    };
+    new raty(element, options);
+</script>
