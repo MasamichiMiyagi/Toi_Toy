@@ -8,10 +8,26 @@
       <%= render 'form', game: @game %>
     </div>
     <div class='col-md-8 offset-md-1 mt-3'>
+      <div class="form-row">
+        <div class="form-group">
         <%= search_form_for @q, url: search_games_path do |f| %>
           <%= f.search_field :title_cont, placeholder: '記事のタイトル' %>
           <%= f.submit '検索', class: 'btn btn-info btn-sm mb-1' %>
         <% end %>
+        </div>
+        <div class="form-group ml-5">
+        <%= form_tag(player_search_games_path, method: "get") do %>
+          <%= select_tag(:player, options_for_select([["1~2人"],["3~6人"],["7人~"]])) %>
+          <%= submit_tag "絞り込み", class: 'btn btn-success btn-sm mb-1' %>
+        <% end %>
+        </div>
+        <div class="form-group ml-3">
+        <%= form_tag(play_time_search_games_path, method: "get") do %>
+          <%= select_tag(:play_time, options_for_select([["~20分"],["20~40分"],["40分~"]])) %>
+          <%= submit_tag "絞り込み", class: 'btn btn-success btn-sm mb-1' %>
+        <% end %>
+        </div>
+      </div>
       <h2 class="mt-3">Tweets</h2>
       <%= render 'index', games: @games %>
       <%= paginate @games %>

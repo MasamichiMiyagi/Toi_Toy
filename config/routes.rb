@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       collection do
         get 'search'
+        get 'player_search'
+        get 'play_time_search'
       end
       resources :post_comments, only: [:create, :destroy]
     end

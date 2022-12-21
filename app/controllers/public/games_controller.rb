@@ -58,6 +58,20 @@ class Public::GamesController < ApplicationController
     @results = @q.result
   end
 
+  def player_search
+    @games = Game.where('player LIKE ?', "%#{params[:player]}%").page(params[:page]).per(5)
+    @game = Game.new
+    @q = Game.ransack(params[:q])
+    render :index
+  end
+
+  def play_time_search
+    @games = Game.where('play_time LIKE ?', "%#{params[:play_time]}%").page(params[:page]).per(5)
+    @game = Game.new
+    @q = Game.ransack(params[:q])
+    render :index
+  end
+
   private #←一種の境界線、「ここから下はこのcontrollerの中でしか呼び出せません」という意味があるので、他アクション(create,index,show等)を巻き込まないように一番下に書く。
   #↓以下ストロングパラメータ
   def game_params

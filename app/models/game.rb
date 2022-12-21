@@ -9,7 +9,7 @@ class Game < ApplicationRecord
   validates :body,presence:true,length:{maximum:200}
   validates :star,presence:true
 
-  #enum player: { "1~2人": 1, "3~6人": 2, "7人~": 3 }
+  #enum player: { "1~2人": 1, "3~6人": 2, "7人~": 3 } 時間が確保できればinteger型に変更した上でymlファイルで日本語化対応させる。" "内を整数値に置換。
 
   has_one_attached :game_image
 
