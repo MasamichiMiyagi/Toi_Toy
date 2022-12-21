@@ -9,6 +9,8 @@ class Game < ApplicationRecord
   validates :body,presence:true,length:{maximum:200}
   validates :star,presence:true
 
+  #enum player: { "1~2人": 1, "3~6人": 2, "7人~": 3 }
+
   has_one_attached :game_image
 
   def get_game_image(width, height)

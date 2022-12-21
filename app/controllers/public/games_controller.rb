@@ -19,8 +19,9 @@ class Public::GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game), notice: "You have created successfully."
     else
-      @games = Game.all
+      @games = Game.all.page(params[:page]).per(5)
       @customer = current_customer
+      @q = Game.ransack(params[:q])
       render :index
     end
   end
@@ -60,7 +61,7 @@ class Public::GamesController < ApplicationController
   private #←一種の境界線、「ここから下はこのcontrollerの中でしか呼び出せません」という意味があるので、他アクション(create,index,show等)を巻き込まないように一番下に書く。
   #↓以下ストロングパラメータ
   def game_params
-    params.require(:game).permit(:title, :body, :game_image, :star)
+    params.require(:game).permit(:title, :body, :game_image, :star, :player, :play_time)
   end
 
   def set_q
