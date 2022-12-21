@@ -7,7 +7,7 @@ class Public::GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all.page(params[:page]).per(5)
+    @games = Game.all.page(params[:page]).per(7)
     @game = Game.new
     @customers = Customer.all
     @customer = current_customer
@@ -19,7 +19,7 @@ class Public::GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game), notice: "You have created successfully."
     else
-      @games = Game.all.page(params[:page]).per(5)
+      @games = Game.all.page(params[:page]).per(7)
       @customer = current_customer
       @q = Game.ransack(params[:q])
       render :index
@@ -27,6 +27,7 @@ class Public::GamesController < ApplicationController
   end
 
   def show
+    @game_new = Game.new
     @game = Game.find(params[:id])
     @customer = @game.customer
     @post_comment = PostComment.new
@@ -53,20 +54,20 @@ class Public::GamesController < ApplicationController
   end
 
   def search
-    @games = Game.all.page(params[:page]).per(5)
+    @games = Game.all.page(params[:page]).per(7)
     @game = Game.new
     @results = @q.result
   end
 
   def player_search
-    @games = Game.where('player LIKE ?', "%#{params[:player]}%").page(params[:page]).per(5)
+    @games = Game.where('player LIKE ?', "%#{params[:player]}%").page(params[:page]).per(7)
     @game = Game.new
     @q = Game.ransack(params[:q])
     render :index
   end
 
   def play_time_search
-    @games = Game.where('play_time LIKE ?', "%#{params[:play_time]}%").page(params[:page]).per(5)
+    @games = Game.where('play_time LIKE ?', "%#{params[:play_time]}%").page(params[:page]).per(7)
     @game = Game.new
     @q = Game.ransack(params[:q])
     render :index
