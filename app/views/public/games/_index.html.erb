@@ -17,7 +17,7 @@
         </td>
         <td><%= link_to game.title,game, class: "game_#{game.id}" %></td>
         <td><%= game.body %></td>
-        <td class="game" value=<%= game.star%>>
+        <td class="game" value=<%= game.star %>>
         </td>
         <td><%= render "public/post_comments/counter", game: game %></td>
       </tr>
