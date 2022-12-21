@@ -3,7 +3,9 @@
     <tr>
       <th>Comment List</th>
       <th></th>
-      <th></th>
+      <th class="post-comments-counter">
+        <%= render "public/post_comments/counter", game: @game %>
+      </th>
     </tr>
   </thead>
   <tbody>
