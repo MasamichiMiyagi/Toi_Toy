@@ -22,7 +22,7 @@
             <td><%= game.title %></td>
             <td><%= game.body %></td>
             <% if admin_signed_in? %>
-              <td><%= link_to "削除", game_path(game.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %></td>
+              <td><%= link_to "削除", admin_game_path(game.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %></td>
             <% end %>
           </tr>
         <% end %>
