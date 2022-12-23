@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customers_path(@customer), notice: "You have updated successfully."
     else
-      render :show
+      render :edit
     end
   end
 

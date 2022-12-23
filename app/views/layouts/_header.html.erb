@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-brand p-3" href="/">
         <%= link_to root_path do %>
-          <%= image_tag('Toi_Toy_logo.png') %>
+          <%= image_tag('ToiToy_logo.png') %>
         <% end %>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,59 +14,81 @@
         <% if customer_signed_in? %>
           <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-secondary font-weight-bold' do %>
-              <i class="fas fa-chess-rook"></i> home
+              <button type="button" class="btn btn-light text-secondary">
+                <i class="fas fa-chess-rook"></i> home
+              </button>
             <% end %>
           </li>
           <li>
             <%= link_to customers_path,class: 'nav-link text-primary font-weight-bold' do %>
-              <i class="fas fa-users"></i> customers
+              <button type="button" class="btn btn-light text-primary">
+                <i class="fas fa-users"></i> customers
+              </button>
             <% end %>
           </li>
           <li>
             <%= link_to games_path ,class: 'nav-link text-info font-weight-bold' do %>
-              <i class="fas fa-dice-five"></i> games
+              <button type="button" class="btn btn-light text-info">
+                <i class="fas fa-dice-five"></i> games
+              </button>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-danger font-weight-bold' do %>
-              <i class="fas fa-sign-out-alt"></i> log out
+            <%= link_to destroy_customer_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' },class: 'nav-link text-danger font-weight-bold' do %>
+              <button type="button" class="btn btn-light text-danger">
+                <i class="fas fa-sign-out-alt"></i> log out
+              </button>
             <% end %>
           </li>
         <% elsif admin_signed_in? %>
           <li>
             <%= link_to admin_customers_path,class: 'nav-link text-primary font-weight-bold' do %>
-              <i class="fas fa-users"></i> customers
+              <button type="button" class="btn btn-light text-primary">
+                <i class="fas fa-users"></i> customers
+              </button>
             <% end %>
           </li>
           <li>
             <%= link_to admin_games_path ,class: 'nav-link text-info font-weight-bold' do %>
-              <i class="fas fa-dice-five"></i> games
+              <button type="button" class="btn btn-light text-info">
+                <i class="fas fa-dice-five"></i> games
+              </button>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-danger font-weight-bold' do %>
-              <i class="fas fa-sign-out-alt"></i> log out
+            <%= link_to destroy_admin_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' },class: 'nav-link text-danger font-weight-bold' do %>
+              <button type="button" class="btn btn-light text-danger">
+                <i class="fas fa-sign-out-alt"></i> log out
+              </button>
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-secondary font-weight-bold' do %>
-              <i class="fas fa-chess-rook"></i> home
+              <button type="button" class="btn btn-light text-secondary">
+                <i class="fas fa-chess-rook"></i> home
+              </button>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_registration_path,class: 'nav-link text-success font-weight-bold' do %>
-              <i class="fas fa-user-plus"></i> sign up
+              <button type="button" class="btn btn-light text-success">
+                <i class="fas fa-user-plus"></i> sign up
+              </button>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_session_path ,class: 'nav-link text-primary font-weight-bold' do %>
-              <i class="fas fa-sign-in-alt"></i> log in
+              <button type="button" class="btn btn-light text-primary">
+                <i class="fas fa-sign-in-alt"></i> log in
+              </button>
             <% end %>
           </li>
           <li>
             <%=  link_to homes_guest_sign_in_path, method: :post ,class: 'nav-link text-dark font-weight-bold' do %>
-              <i class="fas fa-user-circle"></i> guest log in
+              <button type="button" class="btn btn-light text-dark">
+                <i class="fas fa-user-circle"></i> guest log in
+              </button>
             <% end %>
           </li>
         <% end %>
@@ -75,3 +97,12 @@
     </div>
   </nav>
 </header>
+
+<style>
+  .navbar {
+    margin-top:5px;
+    background-image: url('assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+</style>
