@@ -7,14 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #管理者ログイン
-#Admin.create!(
-#  email: 'admin@admin',
-#  password: 'adminadmin'
-#)
-
 Admin.create!(
-  email: 'admin@test',
-  password: 'admintest'
+  email: 'admin@admin',
+  password: 'adminadmin'
 )
 
 # 以下テストデータ
