@@ -26,14 +26,14 @@
 
 <script>
 for(let step = 0; step < <%= games.length %>;step++) {
-   var element = document.getElementsByClassName('game')[step];
-   var options = {
+    document.getElementsByClassName('game')[step].innerHTML = ""
+    new raty(
+      document.getElementsByClassName('game')[step], {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
-    readOnly:true,
-    score:element.getAttribute("value")
-    };
-    new raty(element, options);
+      readOnly: true,
+      score: document.getElementsByClassName('game')[step].getAttribute("value")
+    });
 }
 </script>

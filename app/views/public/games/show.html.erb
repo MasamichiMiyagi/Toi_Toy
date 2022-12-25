@@ -38,13 +38,12 @@
 </div>
 
 <script>
-   var element = document.getElementsByClassName('game')[0];
-   var options = {
+    document.getElementsByClassName('game')[0].innerHTML = ""
+    new raty(document.getElementsByClassName('game')[0], {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
-    readOnly:true,
-    score:element.getAttribute("value")
-    };
-    new raty(element, options);
+      readOnly: true,
+      score: document.getElementsByClassName('game')[0].getAttribute("value")
+    });
 </script>

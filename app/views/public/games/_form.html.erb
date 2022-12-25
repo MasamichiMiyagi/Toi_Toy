@@ -29,13 +29,11 @@
 <% end %>
 
 <script>
-  console.log('<%= JSON.dump(game.star) %>')
-    var element = document.querySelector('[review-star]');
-    var options = {
+  document.querySelector('[review-star]').innerHTML = ""
+  new raty(document.querySelector('[review-star]'), {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
       scoreName: 'game[star]'//登録するモデル名とカラム名を記述
-    };
-  new raty(element, options);
+    });
 </script>
