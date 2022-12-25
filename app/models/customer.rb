@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/profile_icon.png')
-      profile_image.attach(io: File.open(file_path), filename: 'profile_icon.png', content_type: 'image/jpeg')
+      profile_image.attach(io: File.open(file_path), filename: 'profile_icon.png', content_type: 'image/jpg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
