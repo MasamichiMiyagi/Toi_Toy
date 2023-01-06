@@ -1,4 +1,5 @@
 class Public::PostCommentsController < ApplicationController
+  before_action :is_matching_login_customer, only: [:create, :destroy]
 
   def create
     @game = Game.find(params[:game_id])
@@ -23,4 +24,11 @@ class Public::PostCommentsController < ApplicationController
     params.require(:post_comment).permit(:comment)
   end
 
+  def is_matching_login_customer
+    @game = Game.find(params[:game_id])
+    login_customer_id = current_customer.id
+    if(post_comment.customer_id != login_customer_id)
+      redirect_to game_path
+    end
+  end
 end
