@@ -39,8 +39,18 @@
   background-position: center;
 }
 
-  .footer {
-    background-image: image-url('background-image.jpg');
-    background-size: cover;
-    height: 100px;
+.footer {
+  background-image: image-url('background-image.jpg');
+  background-size: cover;
+  height: 100px;
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    width: 100%;
   }
+  
+  .footer {
+    width: 100%;
+  }
+}
