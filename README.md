@@ -14,8 +14,8 @@
 感染症の流行や天候などで外出して遊ぶことが不可能になった際、複数人で遊ぶ為に使用するツールの代表例が「ゲーム」であり、本サイトはその中でも「ボードゲーム」に焦点を当て、ゲームの購入をする上での参考サイトとして利用を行えるようにする。
 
 ## 設計書
-･WBS: https://docs.google.com/spreadsheets/d/1kO10711AoxEibVXSdxsMzZjBs0yl7pla0Ggdrs0Kxrc/edit?usp=sharing
-･ワイヤーフレーム: https://drive.google.com/file/d/15kiroyXpzaw_hLiCV1cdgXZxjy5AuJgM/view?usp=sharing
+- WBS: https://docs.google.com/spreadsheets/d/1kO10711AoxEibVXSdxsMzZjBs0yl7pla0Ggdrs0Kxrc/edit?usp=sharing
+- ワイヤーフレーム: https://drive.google.com/file/d/15kiroyXpzaw_hLiCV1cdgXZxjy5AuJgM/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
