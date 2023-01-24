@@ -1,4 +1,5 @@
-<%= form_with(model:[game, post_comment], local: false) do |f| %>
+<%# Ajaxの為にpost_comment]の後に続く「, local: false」を削除している %>
+<%= form_with(model:[game, post_comment]) do |f| %>
 
   <%= render 'layouts/errors', obj: f.object %>
 
