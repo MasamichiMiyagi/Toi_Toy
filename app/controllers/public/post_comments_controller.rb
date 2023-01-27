@@ -16,7 +16,7 @@ class Public::PostCommentsController < ApplicationController
   def destroy
     @game = Game.find(params[:game_id])
     PostComment.find(params[:id]).destroy
-    redirect_to game_path(@game)
+    #redirect_to game_path(@game)
   end
 
   private
