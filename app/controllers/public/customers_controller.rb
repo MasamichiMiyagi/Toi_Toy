@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :ensure_correct_customer, only: [:update]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @game = Game.new
@@ -33,10 +34,20 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @customers = Customer.all.page(params[:page]).per(7)
+    @game = Game.new
+    @results = @q.result
+  end
+
   private #←一種の境界線、「ここから下はこのcontrollerの中でしか呼び出せません」という意味があるので、他アクション(create,index,show等)を巻き込まないように一番下に書く。
   #↓以下ストロングパラメータ
   def customer_params
     params.require(:customer).permit(:name, :profile_image)
+  end
+
+  def set_q
+    @q = Customer.ransack(params[:q])
   end
 
   def ensure_correct_customer
