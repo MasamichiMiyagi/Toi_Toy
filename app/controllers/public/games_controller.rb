@@ -50,7 +50,7 @@ class Public::GamesController < ApplicationController
     @games = Game.all
     @game = Game.find(params[:id])
     @game.destroy
-    redirect_to games_path
+    redirect_to games_path, notice: "You have destroyed successfully."
   end
 
   def search
