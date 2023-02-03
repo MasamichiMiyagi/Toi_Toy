@@ -12,8 +12,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    games_path
+    if super
+      games_path
+    else
+      new_customer_registration_path
+    end
   end
 
   # GET /resource/edit
