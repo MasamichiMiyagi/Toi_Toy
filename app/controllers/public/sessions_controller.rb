@@ -10,14 +10,20 @@ class Public::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
-    games_path
+    if super
+      games_path
+    else
+      new_customer_session_path
+    end
   end
 
   # DELETE /resource/sign_out
   def destroy
-    super
-    root_path
+    if super
+      root_path
+    else
+      customer_path(current_customer)
+    end
   end
 
   protected
