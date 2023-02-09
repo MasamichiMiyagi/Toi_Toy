@@ -1,5 +1,5 @@
 class Public::PostCommentsController < ApplicationController
-  #before_action :is_matching_login_customer, only: [:create, :destroy]
+  #before_action :is_matching_login_customer, only: [:create, :destroy] ...Ajaxの実装を行う場合、before_actionは削除する？
 
   def create
     @game = Game.find(params[:game_id])
