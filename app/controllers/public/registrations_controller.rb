@@ -15,7 +15,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
     if super
       games_path
     else
-      new_customer_registration_path
+      #新規登録画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を
+      render new_customer_registration_path
     end
   end
 

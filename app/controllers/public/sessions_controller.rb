@@ -13,7 +13,8 @@ class Public::SessionsController < Devise::SessionsController
     if super
       games_path
     else
-      new_customer_session_path
+      #ログイン画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を指定
+      render new_customer_session_path
     end
   end
 
@@ -22,7 +23,7 @@ class Public::SessionsController < Devise::SessionsController
     if super
       root_path
     else
-      customer_path(current_customer)
+      render customer_path(current_customer)
     end
   end
 
