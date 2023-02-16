@@ -8,6 +8,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
+    games_path
   end
 
   # POST /resource

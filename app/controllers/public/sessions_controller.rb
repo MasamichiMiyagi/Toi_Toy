@@ -6,6 +6,7 @@ class Public::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
+    games_path
   end
 
   # POST /resource/sign_in
