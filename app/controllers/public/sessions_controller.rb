@@ -14,7 +14,7 @@ class Public::SessionsController < Devise::SessionsController
     if super
       games_path
     else
-      #ログイン画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を指定
+      #ログイン画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を指定（renderが必要か否か）
       render new_customer_session_path
     end
   end
