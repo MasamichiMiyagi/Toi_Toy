@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    # registrations: "admin/registrations"はseeds.rb内にアカウントが内蔵されている為、そのままログイン画面に遷移で良い。
     sessions: "admin/sessions"
   }
 
