@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     end
     resources :games, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       collection do
+        # 検索機能及び絞り込み機能
         get 'search'
         get 'player_search'
         get 'play_time_search'
