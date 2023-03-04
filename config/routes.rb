@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update, :destroy] do
       collection do
+        # 検索機能
         get 'search'
       end
     end
