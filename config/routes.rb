@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  # 管理者用サインアップ及びログイン
-  # URL /admin/sign_in ...
+  # 管理者用サインアップ及びログイン(URL /admin/sign_in ...)
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     # registrations: "admin/registrations"はseeds.rb内にアカウントが内蔵されている為、そのままログイン画面に遷移で良い。
     sessions: "admin/sessions"
   }
 
-  # 顧客用サインアップ及びログイン
-  # URL /customers/sign_in ...
+  # 顧客用サインアップ及びログイン(URL /customers/sign_in ...)
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
