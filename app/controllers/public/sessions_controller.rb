@@ -5,6 +5,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
+    #オーバーライド。子クラスのメソッド内でsuperを定義することで親クラスにある同じ名前のメソッドを呼び出せる。
     super
     games_path
   end
