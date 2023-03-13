@@ -7,6 +7,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    #オーバーライド。子クラスのメソッド内でsuperを定義することで親クラスにある同じ名前のメソッドを呼び出せる。
     super
     games_path
   end
