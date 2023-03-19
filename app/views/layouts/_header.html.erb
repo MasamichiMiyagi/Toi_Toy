@@ -15,28 +15,28 @@
           <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-secondary font-weight-bold' do %>
               <button type="button" class="btn btn-light text-secondary">
-                <i class="fas fa-chess-rook"></i> home
+                <i class="fas fa-chess-rook"></i> Home
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to customers_path,class: 'nav-link text-primary font-weight-bold' do %>
               <button type="button" class="btn btn-light text-primary">
-                <i class="fas fa-users"></i> customers
+                <i class="fas fa-users"></i> Customers
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to games_path ,class: 'nav-link text-info font-weight-bold' do %>
               <button type="button" class="btn btn-light text-info">
-                <i class="fas fa-dice-five"></i> games
+                <i class="fas fa-dice-five"></i> Games
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' },class: 'nav-link text-danger font-weight-bold' do %>
               <button type="button" class="btn btn-light text-danger">
-                <i class="fas fa-sign-out-alt"></i> log out
+                <i class="fas fa-sign-out-alt"></i> Log out
               </button>
             <% end %>
           </li>
@@ -44,21 +44,21 @@
           <li>
             <%= link_to admin_customers_path,class: 'nav-link text-primary font-weight-bold' do %>
               <button type="button" class="btn btn-light text-primary">
-                <i class="fas fa-users"></i> customers
+                <i class="fas fa-users"></i> Customers
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to admin_games_path ,class: 'nav-link text-info font-weight-bold' do %>
               <button type="button" class="btn btn-light text-info">
-                <i class="fas fa-dice-five"></i> games
+                <i class="fas fa-dice-five"></i> Games
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' },class: 'nav-link text-danger font-weight-bold' do %>
               <button type="button" class="btn btn-light text-danger">
-                <i class="fas fa-sign-out-alt"></i> log out
+                <i class="fas fa-sign-out-alt"></i> Log out
               </button>
             <% end %>
           </li>
@@ -66,28 +66,28 @@
           <li>
             <%= link_to root_path,class: 'nav-link text-secondary font-weight-bold' do %>
               <button type="button" class="btn btn-light text-secondary">
-                <i class="fas fa-chess-rook"></i> home
+                <i class="fas fa-chess-rook"></i> Home
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_registration_path,class: 'nav-link text-success font-weight-bold' do %>
               <button type="button" class="btn btn-light text-success">
-                <i class="fas fa-user-plus"></i> sign up
+                <i class="fas fa-user-plus"></i> Sign up
               </button>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_session_path ,class: 'nav-link text-primary font-weight-bold' do %>
               <button type="button" class="btn btn-light text-primary">
-                <i class="fas fa-sign-in-alt"></i> log in
+                <i class="fas fa-sign-in-alt"></i> Log in
               </button>
             <% end %>
           </li>
           <li>
             <%=  link_to homes_guest_sign_in_path, method: :post ,class: 'nav-link text-dark font-weight-bold' do %>
               <button type="button" class="btn btn-light text-dark">
-                <i class="fas fa-user-circle"></i> guest log in
+                <i class="fas fa-user-circle"></i> Guest Log in
               </button>
             <% end %>
           </li>
