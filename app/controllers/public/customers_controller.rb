@@ -46,6 +46,7 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:name, :profile_image)
   end
 
+  #ransackを用いた検索機能
   def set_q
     @q = Customer.ransack(params[:q])
   end
