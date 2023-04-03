@@ -79,6 +79,7 @@ class Public::GamesController < ApplicationController
     params.require(:game).permit(:title, :body, :game_image, :star, :player, :play_time)
   end
 
+  #ransackを用いた検索機能
   def set_q
     @q = Game.ransack(params[:q])
   end
