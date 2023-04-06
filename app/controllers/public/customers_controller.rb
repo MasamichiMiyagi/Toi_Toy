@@ -34,6 +34,7 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  #ransackを用いた検索機能を導入しないと検索結果が表示されない（@results = @q.result）
   def search
     @customers = Customer.all.page(params[:page]).per(7)
     @game = Game.new
