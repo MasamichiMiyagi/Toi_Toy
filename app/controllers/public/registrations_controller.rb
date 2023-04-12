@@ -18,7 +18,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
     if super
       games_path
     else
-      #新規登録画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を指定（renderが必要か否か）
+      #新規登録画面に何も記載しなかった際に、リンクが読み込まれてしまうことがないようにrender先を指定
       new_customer_registration_path
     end
   end
