@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
   #バリデーションの設定
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
+  #以下画像読み込みに関する処理
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
