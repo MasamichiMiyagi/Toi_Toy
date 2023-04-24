@@ -22,7 +22,7 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  #アカウント消去の有無
+  #アカウントが消去されているか否かの確認を行う
   def active_for_authentication?
     super && (is_deleted != true)
   end
