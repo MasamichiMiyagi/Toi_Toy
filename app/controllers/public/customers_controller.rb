@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :ensure_correct_customer, only: [:update]
+  before_action :ensure_correct_customer, only: [:update] #is_matching_login と同じ動作
   before_action :set_q, only: [:index, :search]
 
   def index
