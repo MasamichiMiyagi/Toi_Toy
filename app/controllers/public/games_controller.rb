@@ -1,5 +1,5 @@
 class Public::GamesController < ApplicationController
-  before_action :is_matching_login_customer, only: [:edit, :update]
+  before_action :is_matching_login_customer, only: [:edit, :update] #ensure_correct と同じ動作
   before_action :set_q, only: [:index, :search]
 
   def new
