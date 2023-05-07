@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :ensure_correct_customer, only: [:update] #is_matching_login と同じ動作
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index, :search] #ransackを用いた検索機能
 
   def index
     @game = Game.new
