@@ -1,6 +1,6 @@
 class Public::GamesController < ApplicationController
   before_action :is_matching_login_customer, only: [:edit, :update] #ensure_correct と同じ動作
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index, :search] #ransackを用いた検索機能
 
   def new
     @game = Game.new
