@@ -53,6 +53,7 @@ class Public::GamesController < ApplicationController
     redirect_to games_path, notice: "You have destroyed successfully."
   end
 
+  #ransackを用いた検索機能を導入しないと検索結果が表示されない（@results = @q.result）
   def search
     @games = Game.all.page(params[:page]).per(7)
     @game = Game.new
